@@ -31,7 +31,7 @@ public class LancamentoServiceImpl implements LancamentoService {
 	@Cacheable("lancamentoPorId")
 	public Optional<Lancamento> buscarPorId(Long id) {
 		log.info("Buscando um lançamento pelo ID {}", id);
-		return Optional.ofNullable(this.lancamentoRepository.getOne(id));
+		return Optional.ofNullable(this.lancamentoRepository.findOne(id));
 	}
 	
 	@CachePut("lancamentoPorId")
@@ -42,7 +42,7 @@ public class LancamentoServiceImpl implements LancamentoService {
 	
 	public void remover(Long id) {
 		log.info("Removendo o lançamento ID {}", id);
-		this.lancamentoRepository.deleteById(id);
+		this.lancamentoRepository.delete(id);
 	}
 
 }

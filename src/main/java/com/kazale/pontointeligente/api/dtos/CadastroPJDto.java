@@ -6,8 +6,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.hibernate.validator.constraints.br.CPF;
 
-import net.bytebuddy.implementation.bind.annotation.Empty;
-
 public class CadastroPJDto {
 	
 	private Long id;
@@ -78,7 +76,7 @@ public class CadastroPJDto {
 	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
 	}
-	
+
 	@NotEmpty(message = "CNPJ não pode ser vazio.")
 	@CNPJ(message="CNPJ inválido.")
 	public String getCnpj() {

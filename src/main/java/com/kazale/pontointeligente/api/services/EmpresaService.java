@@ -7,7 +7,7 @@ import com.kazale.pontointeligente.api.entities.Empresa;
 public interface EmpresaService {
 
 	/**
-	 * Retorna uma empresa dado um CNPJ
+	 * Retorna uma empresa dado um CNPJ.
 	 * 
 	 * @param cnpj
 	 * @return Optional<Empresa>
@@ -15,10 +15,11 @@ public interface EmpresaService {
 	Optional<Empresa> buscarPorCnpj(String cnpj);
 	
 	/**
-	 * Cadastra uma nova empresa no banco de dados
+	 * Cadastra uma nova empresa na base de dados.
 	 * 
 	 * @param empresa
 	 * @return Empresa
 	 */
 	Empresa persistir(Empresa empresa);
+	
 }

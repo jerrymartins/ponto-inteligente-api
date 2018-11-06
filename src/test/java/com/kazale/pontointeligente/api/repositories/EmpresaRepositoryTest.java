@@ -1,7 +1,6 @@
 package com.kazale.pontointeligente.api.repositories;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,34 +12,35 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.kazale.pontointeligente.api.entities.Empresa;
-import com.kazale.pontointeligente.api.repositories.EmpresaRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
 public class EmpresaRepositoryTest {
-
+	
 	@Autowired
 	private EmpresaRepository empresaRepository;
 	
-	private static final String CNPJ = "514636450001000";
-	
+	private static final String CNPJ = "51463645000100";
+
 	@Before
-	public void setup() throws Exception{
+	public void setUp() throws Exception {
 		Empresa empresa = new Empresa();
-		empresa.setRazaoSocial("empresa exemplo");
+		empresa.setRazaoSocial("Empresa de exemplo");
 		empresa.setCnpj(CNPJ);
 		this.empresaRepository.save(empresa);
 	}
 	
 	@After
-	public final void tearDown() {
+    public final void tearDown() { 
 		this.empresaRepository.deleteAll();
 	}
-	
+
 	@Test
-	public void testBuscarCnpj() {
+	public void testBuscarPorCnpj() {
 		Empresa empresa = this.empresaRepository.findByCnpj(CNPJ);
-		assertThat(empresa.getCnpj(), is(CNPJ));
+		
+		assertEquals(CNPJ, empresa.getCnpj());
 	}
+
 }

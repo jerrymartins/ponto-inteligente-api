@@ -18,7 +18,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.kazale.pontointeligente.api.entities.Empresa;
 import com.kazale.pontointeligente.api.repositories.EmpresaRepository;
-import com.kazale.pontointeligente.api.services.EmpresaService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
