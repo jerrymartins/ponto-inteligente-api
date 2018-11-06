@@ -5,21 +5,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class PasswordUtils {
-	
-	private static final Logger log = LoggerFactory.getLogger(PasswordUtils.class);
+	private static final Logger log = LoggerFactory.getLogger((PasswordUtils.class));
 	
 	public PasswordUtils() {
 		
 	}
 	
-	/**
-	 * gera um hash utilizando bcrypt
-	 */
 	public static String gerarBCrypt(String senha) {
 		if (senha == null) {
 			return senha;
-		}
-		log.info("gerando hash com bcrypt");
+		} 
+		
+		log.info("gerando senha");
 		BCryptPasswordEncoder bCryptEncoder = new BCryptPasswordEncoder();
 		return bCryptEncoder.encode(senha);
 	}
